@@ -38,16 +38,27 @@ git push origin master
 使用前，建议先用git remote -v查看远程库信息：
 比如删除origin：git remote rm origin
 
-创建dev分支
-git branch dev
 
-切换至dev分支
-git checkout dev
+"""""""""""
+查看分支：git branch
 
-创建dev分支并切换到dev分支
-git checkout -b dev
+创建分支：git branch <name>
 
+切换分支：git checkout <name>或者git switch <name>
+
+创建+切换分支：git checkout -b <name>或者git switch -c <name>
+
+合并某分支到当前分支：git merge <name>
+
+删除分支：git branch -d <name>
+""""""""""
+
+
+<<<<<<< HEAD
 列出所有分支，当前分支前面会标一个*号。
 git branch
 
 Creating a new branch is quick & simple.
+=======
+>>>>>>> feature1
+Creating a new branch is quick and simple.
