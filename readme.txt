@@ -24,3 +24,6 @@ git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修�
 
 git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区
 
+git rm <file>,从仓库中删除该文件
+
+git remote add origin git@github.com:github_usename/learngit.git  关联库
