@@ -37,3 +37,15 @@ git push origin master
 添加的时候地址写错了，或者就是想删除远程库，可以用git remote rm <name>命令。
 使用前，建议先用git remote -v查看远程库信息：
 比如删除origin：git remote rm origin
+
+创建dev分支
+git branch dev
+
+切换至dev分支
+git checkout dev
+
+创建dev分支并切换到dev分支
+git checkout -b dev
+
+列出所有分支，当前分支前面会标一个*号。
+git branch
