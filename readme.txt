@@ -21,3 +21,6 @@ HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历�
 git reflog用来记录你的每一次命令：
 
 git checkout -- readme.txt意思就是，把readme.txt文件在工作区的修改全部撤销
+
+git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新放回工作区
+
