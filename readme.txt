@@ -27,3 +27,7 @@ git reset HEAD <file>可以把暂存区的修改撤销掉（unstage），重新�
 git rm <file>,从仓库中删除该文件
 
 git remote add origin git@github.com:github_usename/learngit.git  关联库
+
+git push -u origin master   把当前分支master推送到远程。
+
+git push origin master  只要本地作了提交，就可以通过命令把本地master分支的最新修改推送至GitHub
