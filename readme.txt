@@ -49,3 +49,5 @@ git checkout -b dev
 
 列出所有分支，当前分支前面会标一个*号。
 git branch
+
+Creating a new branch is quick & simple.
