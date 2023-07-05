@@ -58,4 +58,44 @@ git log --graph命令可以看到分支合并图。
 把当前工作现场“储藏”起来，等以后恢复现场后继续工作：
 git stash
 
+查看远程库的信息
+git remote
 
+显示仓库的地址和路径
+git remote -v
+
+
+rebase操作可以把本地未push的分叉提交历史整理成直线；
+rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
+git rebase
+
+在Git中打标签,首先，切换到需要打标签的分支上
+git tag <name>
+git tag v1.0
+
+查看所有标签
+git tag
+
+查找历史commit id
+git log --pretty=oneline --abbrev-commit
+
+给某个commit id打上标签
+git tag <标签名> commit_id。
+
+查看标签信息：
+git show <tagname>
+
+创建带有说明的标签，用-a指定标签名，-m指定说明文字
+git tag -a v0.1 -m "说明文字" 1094adb
+
+删除标签
+git tag -d <tagname>
+
+推送某个标签到远程
+git push origin <tagname>
+推送全部标签
+git push origin --tags
+
+命令git tag -d <tagname>可以删除一个本地标签；
+
+命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
