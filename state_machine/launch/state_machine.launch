@@ -1,0 +1,7 @@
+<launch>
+
+    <node pkg = "state_machine" type = "state_machine_request_node" name="state_machine_request_node" output = "screen"/>
+    <node pkg = "state_machine" type = "state_machine_reply_node" name="state_machine_reply_node" output = "screen"/>
+    <node pkg = "state_machine" type = "state_machine_request" name="state_machine_request" output = "screen"/>
+
+</launch>

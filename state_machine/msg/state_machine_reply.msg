@@ -1,0 +1,2 @@
+uint8 map_control
+uint8 navigation_task

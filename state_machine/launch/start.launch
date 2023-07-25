@@ -1,0 +1,11 @@
+<launch>
+    <include file="$(find orbbec_camera)/launch/ob_camera.launch">
+    <include file="$(find laser)/launch/pavo_scan.launch">
+    <include file="$(find base_controller)/launch/base_controller.launch">
+
+    <include file="$(find rosbridge)/launch/rosbridge_websocket.launch">
+    <include file="$(find state_machine)/launch/state_machine.launch">
+
+
+
+</launch>
