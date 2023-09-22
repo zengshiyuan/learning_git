@@ -609,7 +609,8 @@ void TagDetector::drawDetections (cv_bridge::CvImagePtr image)
     center_y = det->c[1];
     center.center_x = det->c[0];
     center.center_y = det->c[1];
-    // std::cout<<"x::"<<center_x<<std::endl;
+    center.height = image->image.rows;
+    center.width = image->image.cols;
     tag_center_pub_.publish(center);
     
   }

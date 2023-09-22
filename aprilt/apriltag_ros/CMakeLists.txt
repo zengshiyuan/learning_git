@@ -16,7 +16,7 @@ find_package(catkin REQUIRED COMPONENTS
   sensor_msgs
   std_msgs
   tf
-  
+  dynamic_reconfigure
 )
 
 find_package(Eigen3 REQUIRED)
@@ -64,6 +64,7 @@ generate_messages(
   sensor_msgs
   std_msgs
 )
+generate_dynamic_reconfigure_options(cfg/apriltag_location.cfg)
 
 # Extract the include directories and libraries from apriltag::apriltag as catkin_package() does not support modern cmake.
 get_target_property(apriltag_INCLUDE_DIRS apriltag::apriltag INTERFACE_INCLUDE_DIRECTORIES)
@@ -84,10 +85,12 @@ catkin_package(
     sensor_msgs
     std_msgs
     tf
+    dynamic_reconfigure
   DEPENDS
     apriltag
     OpenCV
   LIBRARIES
+    ${PROJECT_NAME}
     ${PROJECT_NAME}_common
     ${PROJECT_NAME}_continuous_detector
 )
@@ -96,11 +99,13 @@ catkin_package(
 ## Build ##
 ###########
 
-include_directories(include
+include_directories(
+  include
   ${catkin_INCLUDE_DIRS}
   ${EIGEN3_INCLUDE_DIRS}
   ${OpenCV_INCLUDE_DIRS}
 )
+
 
 add_library(${PROJECT_NAME}_common src/common_functions.cpp)
 add_dependencies(${PROJECT_NAME}_common ${PROJECT_NAME}_generate_messages_cpp)
@@ -109,19 +114,19 @@ target_link_libraries(${PROJECT_NAME}_common ${catkin_LIBRARIES} ${OpenCV_LIBRAR
 add_library(${PROJECT_NAME}_continuous_detector src/continuous_detector.cpp)
 target_link_libraries(${PROJECT_NAME}_continuous_detector ${PROJECT_NAME}_common ${catkin_LIBRARIES})
 
-add_executable(${PROJECT_NAME}_continuous_node src/${PROJECT_NAME}_continuous_node.cpp)
+add_executable(${PROJECT_NAME}_continuous_node src/apriltag_ros_continuous_node.cpp)
 add_dependencies(${PROJECT_NAME}_continuous_node ${PROJECT_NAME}_generate_messages_cpp)
 target_link_libraries(${PROJECT_NAME}_continuous_node ${PROJECT_NAME}_continuous_detector ${catkin_LIBRARIES})
 
 
-add_executable(tf_listener src/tf_listener.cpp)
-add_dependencies(tf_listener ${PROJECT_NAME}_generate_messages_cpp)
-target_link_libraries(tf_listener ${PROJECT_NAME}_common ${catkin_LIBRARIES})
+# add_executable(tf_listener src/tf_listener.cpp)
+# add_dependencies(tf_listener ${PROJECT_NAME}_generate_messages_cpp)
+# target_link_libraries(tf_listener ${PROJECT_NAME}_common ${catkin_LIBRARIES})
 
 
-add_executable(april_tf src/april_tf.cpp)
-add_dependencies(april_tf ${PROJECT_NAME}_generate_messages_cpp)
-target_link_libraries(april_tf ${PROJECT_NAME}_common ${catkin_LIBRARIES})
+add_executable(apriltag_location src/apriltag_location.cpp)
+add_dependencies(apriltag_location apriltag_ros_gencfg ${PROJECT_NAME}_generate_messages_cpp ${catkin_EXPORTED_TARGETS})
+target_link_libraries(apriltag_location ${PROJECT_NAME}_common ${catkin_LIBRARIES})
 
 #############
 ## Install ##

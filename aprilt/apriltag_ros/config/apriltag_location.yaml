@@ -1,0 +1,12 @@
+pid_x_kp: 0.3
+pid_x_ki: 0.0001
+pid_x_kd: 0.0001
+
+pid_yaw_kp: 0.3
+pid_yaw_ki: 0.0001
+pid_yaw_kd: 0.0001
+
+pid_lin_Kp: 0.1
+pid_lin_ki: 0.0001
+pid_lin_kd: 0.0001
+

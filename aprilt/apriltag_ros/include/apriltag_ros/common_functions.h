@@ -41,8 +41,8 @@
  * Originator:        Danylo Malyuta, JPL
  ******************************************************************************/
 
-#ifndef APRILTAG_ROS_COMMON_FUNCTIONS_H
-#define APRILTAG_ROS_COMMON_FUNCTIONS_H
+#ifndef APRILTAG_LOCATION_COMMON_FUNCTIONS_H
+#define APRILTAG_LOCATION_COMMON_FUNCTIONS_H
 
 #include <string>
 #include <sstream>

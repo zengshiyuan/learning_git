@@ -51,7 +51,6 @@
 #include <nodelet/nodelet.h>
 #include <ros/service_server.h>
 #include <std_srvs/Empty.h>
-#include "apriltag_ros/ApriltagCenter.h"
 
 namespace apriltag_ros
 {
@@ -79,7 +78,6 @@ class ContinuousDetector: public nodelet::Nodelet
   image_transport::CameraSubscriber camera_image_subscriber_;
   image_transport::Publisher tag_detections_image_publisher_;
   ros::Publisher tag_detections_publisher_;
-  // ros::Publisher tag_center_pub_;
 
 
   ros::ServiceServer refresh_params_service_;
